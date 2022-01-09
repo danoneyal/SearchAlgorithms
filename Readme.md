@@ -8,5 +8,5 @@ update this file from local machine!
 
 ##sub header
 What is Fetch 
-Lets try using fatch 
+Lets try using fetch 
 
