@@ -1,3 +1,4 @@
+#draw a spiral using Turtle lib
 import turtle
 t= turtle.Turtle()
 for i in range(100):
