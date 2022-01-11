@@ -1,8 +1,6 @@
 import copy
 import math
 
-import matplotlib.cm as cm
-import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -57,10 +55,10 @@ class BresenhamsLineGenerationAlgorithm(object):
                 calc_result_array[0, calc_result_array_index] = cur_position.horizontal
                 calc_result_array_index += 1
 
-        # check the max distance
-        if math.fabs(x2 - x1) > math.fabs(y2 - y1):
-            m_new = 2 * (y2 - y1)
-            slope_error_new = m_new - (x2 - x1)
+        # check the slope of the line ,delta_y_smaller_then_delta_x -1<m<1,abs(m)<1
+        if math.fabs(y2 - y1) < math.fabs(x2 - x1):
+            m_new = 2 * math.fabs(y2 - y1)
+            slope_error_new = m_new - math.fabs(x2 - x1)
 
             y = y1
             for x in range(x1, x2 + 1, step_size_x):
@@ -79,13 +77,12 @@ class BresenhamsLineGenerationAlgorithm(object):
 
                 # Slope error reached limit, time to
                 # increment y and update slope error.
-                if (slope_error_new >= 0):
+                if slope_error_new >= 0:
                     y = y + step_size_y
-                    slope_error_new = slope_error_new - 2 * (x2 - x1)
+                    slope_error_new = slope_error_new - 2 * math.fabs(x2 - x1)
 
                 pixel_position_array.append(copy.deepcopy(cur_position))
-        else:
-            # calc_result_array_index = 0
+        else:  # delta_y_greater_then_delta_x -1<m<-1, abs(m)>1
             m_new = math.fabs(2 * (x2 - x1))
             slope_error_new = m_new - math.fabs(x2 - x1)
 
@@ -107,11 +104,10 @@ class BresenhamsLineGenerationAlgorithm(object):
 
                 # Slope error reached limit, time to
                 # increment y and update slope error.
-                if (slope_error_new >= 0):
+                if slope_error_new >= 0:
                     x = x + step_size_x
                     slope_error_new = slope_error_new - math.fabs(2 * (y2 - y1))
 
                 pixel_position_array.append(copy.deepcopy(cur_position))
 
         use_for_break_point = 0
-

@@ -10,7 +10,7 @@ class TestUser(unittest.TestCase):
     def test_line_search__delta_x_zero__positive_y_direction(self):  #
         x1 = 45
         y1 = 45
-        x2 = 1
+        x2 = 45
         y2 = 1
         bl.BresenhamsLineGenerationAlgorithm().bresenham(x1, y1, x2, y2, 2)
 

@@ -1,12 +1,83 @@
-import bresenhams_line_generation_algorithm
+from bresenhams_line_generation_algorithm import *
 import bresenhams_line_generation_algorithm as bla
-# driver function
+import matplotlib.cm as cm
+import matplotlib.pyplot as plt
+
+    # m slope is infinite
+#delta_x_zero__positive_y_direction(self):
 x1 = 45
+x2 = 45
+y1 = 1
+y2 = 45
+#delta_x_zero__negative_y_direction
+x1 = 45
+x2 = 45
 y1 = 45
-x2 = 1
 y2 = 1
 
-bla.BresenhamsLineGenerationAlgorithm.bresenham(x1, y1, x2, y2, 2)
+    # m slope is zero
+#delta_y_zero__positive_x_direction(self):
+
+x1 = 1
+x2 = 45
+y1 = 20
+y2 = 20
+
+#delta_y_zero__negative_x_direction(self):  #
+
+x1 = 45
+x2 = 1
+y1 = 20
+y2 = 20
+
+
+# delta_y_smaller_then_delta_x -1<m<1,abs(m)<1
+#delta_y_smaller_then_delta_x__positive_x_positive_y_direction(self):  # -1<m<1, abs(m)<1, x1<x2 , y1<y2
+
+x1 = 1
+x2 = 45
+y1 = 1
+y2 = 20
+
+#delta_y_smaller_then_delta_x__positive_x_negative_y_direction(self):  # -1<m<1, abs(m)<1,x1<x2 , y1>y2
+
+x1 = 1
+x2 = 45
+y1 = 45
+y2 = 20
+
+#delta_y_smaller_then_delta_x__negative_x_positive_y_direction(self):  # -1<m<1, abs(m)<1,x1>x2 , y1<y2
+
+x1 = 45
+x2 = 1
+y1 = 20
+y2 = 45
+
+#delta_y_smaller_then_delta_x__negative_x_negative_y_direction(self):  # -1<m<1, abs(m)<1, x1>x2 , y1>y2
+x1 = 45
+x2 = 1
+y1 = 45
+y2 = 20
+
+
+"""
+       
+    # delta_y_greater_then_delta_x -1<m<-1, abs(m)>1
+    def test_line_search__delta_y_greater_then_delta_x__positive_x_positive_y_direction(self):# -1<m<-1, abs(m)>1, x1<x2 , y1<y2
+        pass
+
+    def test_line_search__delta_y_greater_then_delta_x__positive_x_negative_y_direction(self):# -1<m<-1, abs(m)>1, x1<x2 , y1>y2
+        pass
+
+    def test_line_search__delta_y_greater_then_delta_x__negative_x_positive_y_direction(self):#-1<m<-1, abs(m)>1, x1>x2 , y1<y2
+        pass
+
+    def test_line_search__delta_y_greater_then_delta_x__negative_x_negative_y_direction(self):#-1<m<-1, abs(m)>1, x1>x2 , y1>y2
+        pass
+    
+"""
+
+bla.BresenhamsLineGenerationAlgorithm.bresenham(x1, y1, x2, y2, 3)
 
 len_pixel_position_array = len(pixel_position_array)
 
