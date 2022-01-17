@@ -1,8 +1,10 @@
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
-
+import copy
+import numpy as np
 import bresenhams_line_generation_algorithm as bla
-from bresenhams_line_generation_algorithm import *
+from bresenhams_line_generation_algorithm import PixelPosition
+from bresenhams_line_generation_algorithm import pixel_position_array
 
 
 class LineCoordinate:
